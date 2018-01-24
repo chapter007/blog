@@ -10,7 +10,7 @@
   <meta name="description" content="继续Leetcode感觉看书上的代码效率并不高，还是写Leetcode比较好 题目Reverse bits of a given 32 bits unsigned integer. For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 9641761">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(Leetcode)ReverseBits解题记录">
-<meta property="og:url" content="http://yoursite.com/2018-01-24-2017-09-26-(Leetcode)ReverseBits.md">
+<meta property="og:url" content="http://chapter007.github.io/blog/2018-01-24-2017-09-26-(Leetcode)ReverseBits.md">
 <meta property="og:site_name" content="张杰的日志">
 <meta property="og:description" content="继续Leetcode感觉看书上的代码效率并不高，还是写Leetcode比较好 题目Reverse bits of a given 32 bits unsigned integer. For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 9641761">
 <meta property="og:locale" content="zh-Hans">
@@ -19,7 +19,7 @@
 <meta name="twitter:title" content="(Leetcode)ReverseBits解题记录">
 <meta name="twitter:description" content="继续Leetcode感觉看书上的代码效率并不高，还是写Leetcode比较好 题目Reverse bits of a given 32 bits unsigned integer. For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 9641761">
   
-    <link rel="alternate" href="/atom.xml" title="张杰的日志" type="application/atom+xml">
+    <link rel="alternate" href="/blog/atom.xml" title="张杰的日志" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -27,7 +27,7 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/blog/css/style.css">
 </head>
 
 <body>
@@ -38,11 +38,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">张杰的日志</a>
+        <a href="/blog/" id="logo">张杰的日志</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">记录学习生活</a>
+          <a href="/blog/" id="subtitle">记录学习生活</a>
         </h2>
       
     </div>
@@ -50,19 +50,19 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/blog/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
         
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chapter007.github.io/blog"></form>
       </div>
     </div>
   </div>
@@ -70,7 +70,7 @@
       <div class="outer">
         <section id="main"><article id="content-2017-09-26-(Leetcode)ReverseBits" class="article article-type-content" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018-01-24-2017-09-26-(Leetcode)ReverseBits.md" class="article-date">
+    <a href="/blog/2018-01-24-2017-09-26-(Leetcode)ReverseBits.md" class="article-date">
   <time datetime="2018-01-24T13:16:48.222Z" itemprop="datePublished">2018-01-24</time>
 </a>
     
@@ -129,7 +129,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018-01-24-2017-09-26-(Leetcode)ReverseBits.md" data-id="cjct4js3m000728u73shhp9mb" class="article-share-link">Teilen</a>
+      <a data-url="http://chapter007.github.io/blog/2018-01-24-2017-09-26-(Leetcode)ReverseBits.md" data-id="cjct5ua100006oou74n9xzh6a" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -138,7 +138,7 @@ public:
     
 <nav id="article-nav">
   
-    <a href="/2018-01-24-2017-09-27-(Leetcode)NumberComplement.md" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2018-01-24-2017-09-27-(Leetcode)NumberComplement.md" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
@@ -148,7 +148,7 @@ public:
     </a>
   
   
-    <a href="/2018-01-24-2017-09-26-(Leetcode)HammingDistance.md" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/blog/2018-01-24-2017-09-26-(Leetcode)HammingDistance.md" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title">(Leetcode)HammingDistance解题记录</div>
     </a>
@@ -174,7 +174,7 @@ public:
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/01/">January 2018</a></li></ul>
     </div>
   </div>
 
@@ -187,23 +187,23 @@ public:
       <ul>
         
           <li>
-            <a href="/2018-01-24-2017-10-22-写写日记.md">дд�ռ�</a>
+            <a href="/blog/2018-01-24-2017-10-22-写写日记.md">дд�ռ�</a>
           </li>
         
           <li>
-            <a href="/2018-01-24-2017-10-12-学习android之四大核心组件.md">学习android之四大组件</a>
+            <a href="/blog/2018-01-24-2017-10-12-学习android之四大核心组件.md">学习android之四大组件</a>
           </li>
         
           <li>
-            <a href="/2018-01-24-2017-10-11-(Leetcode)Invert Binary Tree.md">(leetcode)Invert Binary Tree</a>
+            <a href="/blog/2018-01-24-2017-10-11-(Leetcode)Invert Binary Tree.md">(leetcode)Invert Binary Tree</a>
           </li>
         
           <li>
-            <a href="/2018-01-24-2017-10-09-(Leetcode)NextGreaterElement.md">(leetcode)496. Next Greater Element I</a>
+            <a href="/blog/2018-01-24-2017-10-09-(Leetcode)NextGreaterElement.md">(leetcode)496. Next Greater Element I</a>
           </li>
         
           <li>
-            <a href="/2018-01-24-2017-10-07-学习c++之unordered_set.md">学习C++之unordered_set</a>
+            <a href="/blog/2018-01-24-2017-10-07-学习c++之unordered_set.md">学习C++之unordered_set</a>
           </li>
         
       </ul>
@@ -226,9 +226,9 @@ public:
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/blog/" class="mobile-nav-link">Home</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
     
@@ -236,11 +236,11 @@ public:
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/blog/js/script.js"></script>
 
 
 
