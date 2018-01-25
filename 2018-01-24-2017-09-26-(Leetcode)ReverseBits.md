@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="继续Leetcode感觉看书上的代码效率并不高，还是写Leetcode比较好 题目Reverse bits of a given 32 bits unsigned integer. For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 9641761">
+<meta name="description" content="继续Leetcode感觉看书上的代码效率并不高，还是写Leetcode比较好 题目Reverse bits of a given 32 bits unsigned integer.  For example, given input 43261596 (represented in binary as 00000010100101000001111010011100),  return 96417">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(Leetcode)ReverseBits解题记录">
 <meta property="og:url" content="http://chapter007.github.io/blog/2018-01-24-2017-09-26-(Leetcode)ReverseBits.md">
 <meta property="og:site_name" content="张杰的日志">
-<meta property="og:description" content="继续Leetcode感觉看书上的代码效率并不高，还是写Leetcode比较好 题目Reverse bits of a given 32 bits unsigned integer. For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 9641761">
+<meta property="og:description" content="继续Leetcode感觉看书上的代码效率并不高，还是写Leetcode比较好 题目Reverse bits of a given 32 bits unsigned integer.  For example, given input 43261596 (represented in binary as 00000010100101000001111010011100),  return 96417">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-26T11:35:08.765Z">
+<meta property="og:updated_time" content="2018-01-25T01:04:24.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(Leetcode)ReverseBits解题记录">
-<meta name="twitter:description" content="继续Leetcode感觉看书上的代码效率并不高，还是写Leetcode比较好 题目Reverse bits of a given 32 bits unsigned integer. For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 9641761">
+<meta name="twitter:description" content="继续Leetcode感觉看书上的代码效率并不高，还是写Leetcode比较好 题目Reverse bits of a given 32 bits unsigned integer.  For example, given input 43261596 (represented in binary as 00000010100101000001111010011100),  return 96417">
 
 
 
@@ -300,12 +300,18 @@
 
       
         <h1 id="继续Leetcode"><a href="#继续Leetcode" class="headerlink" title="继续Leetcode"></a>继续Leetcode</h1><p>感觉看书上的代码效率并不高，还是写Leetcode比较好</p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>Reverse bits of a given 32 bits unsigned integer.</p>
-<p>For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 964176192 (represented in binary as 00111001011110000010100101000000).</p>
-<p>Follow up:<br>If this function is called many times, how would you optimize it?</p>
-<p>Related problem: Reverse Integer</p>
-<p>题意是给定一个32位无符号的整数，然后反转这个数的二进制形式，得到一个新的32位无符号整数，注意这是十进制的</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><pre><code>Reverse bits of a given 32 bits unsigned integer.
+
+For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), 
+return 964176192 (represented in binary as 00111001011110000010100101000000).
+
+Follow up:
+If this function is called many times, how would you optimize it?
+
+Related problem: Reverse Integer
+</code></pre><p>题意是给定一个32位无符号的整数，然后反转这个数的二进制形式，得到一个新的32位无符号整数，注意这是十进制的</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>有了前面的Hamming Distance基础，可以联想到这题应该也是用位运算。不过，我只想到了把无符号整数&amp;1，可以快速得到2进制的数，但是我那样还要转换回十进制。。。做了一会，还是跪了。在网上找到别的方法，使用位运算的左右移位操作即可实现这个要求。<br>当给定的数字n,最后一位n&amp;1==1，则把要输出的数 m&gt;&gt;1+1,如果n&amp;1==0，则m&gt;&gt;1,这个操作是在一个32次循环中<br>因为32位数字，每次操作后n需要右移一位n&lt;&lt;=1</p>
+<a id="more"></a>
 <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><pre><code>class Solution {
 public:
     uint32_t reverseBits(uint32_t n) {

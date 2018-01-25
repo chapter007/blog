@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="张杰的日志">
 <meta property="og:description" content="(Leetcode)Number Complement解题记录又是一题位操作的题目，摩拳擦掌表示应该能做出来。。。不过最后确实是写出来了，不过不是最优解 题目Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary represe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T09:07:34.298Z">
+<meta property="og:updated_time" content="2018-01-25T01:03:31.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(Leetcode)Number Complement解题记录">
 <meta name="twitter:description" content="(Leetcode)Number Complement解题记录又是一题位操作的题目，摩拳擦掌表示应该能做出来。。。不过最后确实是写出来了，不过不是最优解 题目Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary represe">
@@ -300,11 +300,19 @@
 
       
         <h2 id="Leetcode-Number-Complement解题记录"><a href="#Leetcode-Number-Complement解题记录" class="headerlink" title="(Leetcode)Number Complement解题记录"></a>(Leetcode)Number Complement解题记录</h2><p>又是一题位操作的题目，摩拳擦掌表示应该能做出来。。。不过最后确实是写出来了，不过不是最优解</p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.</p>
-<p>Note:<br>The given integer is guaranteed to fit within the range of a 32-bit signed integer.<br>You could assume no leading zero bit in the integer’s binary representation.</p>
-<p>Example：<br>    Input: 5<br>    Output: 2<br>    Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.</p>
-<p>题意是输入一个整数，输出一个十进制数，他们的二进制互补</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><pre><code>Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
+
+Note:
+The given integer is guaranteed to fit within the range of a 32-bit signed integer.
+You could assume no leading zero bit in the integer’s binary representation.
+
+Example：
+    Input: 5
+    Output: 2
+    Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.
+</code></pre><p>题意是输入一个整数，输出一个十进制数，他们的二进制互补</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>有了昨天位运算的基础，感觉自己应该能做。首先想到的是先&amp;1，然后再进行移位操作，通过&amp;1是否为0，判断二进制尾位是否为0，然后分情况对输出数字进行移位操作。试了一下发现不可行，比如输入2，二进制是10，互补的应该是01，但是移位出的结果还是10，，，放弃这个想法。<br>后面的思路就比较暴力了，，直接把二进制数转换为十进制的。。比较蠢的方法，不过ac了<br>后来在网上看到比较好的解法，是使用mask掩码，使mask^num就可以得到补码！真是很方便，但是我却想不到，完全没想到这种操作，还是太年轻。。</p>
+<a id="more"></a>
 <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>比较蠢的方法。。。</p>
 <pre><code>class Solution {
 public:

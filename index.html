@@ -972,130 +972,29 @@ The number in given array is in range [-100,000, 100,000].
 
       
         
-          
-            <h2 id="Leetcode-Keyboard-Row解题记录"><a href="#Leetcode-Keyboard-Row解题记录" class="headerlink" title="(Leetcode)Keyboard Row解题记录"></a>(Leetcode)Keyboard Row解题记录</h2><p>这是一题字符串有关的题目，我只想到了笨方法，而且实现起来比较复杂，感觉写出来需要很久</p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like the image below.</p>
-<p>Example 1:</p>
-<p>Input: [“Hello”, “Alaska”, “Dad”, “Peace”]<br>Output: [“Alaska”, “Dad”]</p>
-<p>Note:</p>
-<p>You may use one character in the keyboard more than once.<br>You may assume the input string will only contain letters of alphabet.</p>
-<p>题意是输入一些单词，返回那些字母全在键盘上同一行的单词，比较好懂</p>
+          <h2 id="Leetcode-Keyboard-Row解题记录"><a href="#Leetcode-Keyboard-Row解题记录" class="headerlink" title="(Leetcode)Keyboard Row解题记录"></a>(Leetcode)Keyboard Row解题记录</h2><p>这是一题字符串有关的题目，我只想到了笨方法，而且实现起来比较复杂，感觉写出来需要很久</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><pre><code>Given a List of words, return the words that can be typed using letters of alphabet on only one row&apos;s of American keyboard like the image below.
+
+Example 1:
+
+Input: [&quot;Hello&quot;, &quot;Alaska&quot;, &quot;Dad&quot;, &quot;Peace&quot;]
+Output: [&quot;Alaska&quot;, &quot;Dad&quot;]
+
+
+Note:
+
+You may use one character in the keyboard more than once.
+You may assume the input string will only contain letters of alphabet.
+</code></pre><p>题意是输入一些单词，返回那些字母全在键盘上同一行的单词，比较好懂</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>思路很清晰，键盘上每一行的字母都是确定的，把每一行都存储到数组里面，然后遍历单词，就可以知道单词的字母在哪一行了，如果所有字母不在同一行则不符合规则。<br>事实上这样的效率会比较低，需要遍历单词，还需要遍历每一行的字母，嵌套遍历了。后来在网上看到别的解法，思路相似，但是使用unordered_set count可以快速得知单词里的字母是否在某一行中。需要补充一些c++的语法知识了。</p>
-<h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>vector(向量): C++中的一种数据结构,确切的说是一个类.它相当于一个动态的数组,当程序员无法知道自己需要的数组的规模多大时,用其来解决问题可以达到最大节约空间的目的.<br>用法:</p>
-<p>1.文件包含:<br>    首先在程序开头处加上#include<vector>以包含所需要的类文件vector还有一定要加上using namespace std;<br>2.变量声明:<br>    2.1 例:声明一个int向量以替代一维的数组:vector <int> a;(等于声明了一个int数组a[],大小没有指定,可以动态的向里面添加删除)。<br>    2.2 例:用vector代替二维数组.其实只要声明一个一维数组向量即可,而一个数组的名字其实代表的是它的首地址,所以只要声明一个地址的向量即可,即:vector <int *=""> a.同理想用向量代替三维数组也是一样,vector <int**>a;再往上面依此类推.</int**></int></int></vector></p>
-<p>3.具体的用法以及函数调用:</p>
-<pre><code>3.1 如何得到向量中的元素?其用法和数组一样:
-例如:
-    vector &lt;int *&gt; a
-    int b = 5;
-    a.push_back(b);//该函数下面有详解
-    cout&lt;&lt;a[0];       //输出结果为5
-
-        push_back   在数组的最后添加一个数据
-        pop_back    去掉数组的最后一个数据 
-        at                得到编号位置的数据
-        begin           得到数组头的指针
-        end             得到数组的最后一个单元+1的指针
-        front        得到数组头的引用
-        back            得到数组的最后一个单元的引用
-        max_size     得到vector最大可以是多大
-        capacity       当前vector分配的大小
-        size           当前使用数据的大小
-        resize         改变当前使用数据的大小，如果它比当前使用的大，者填充默认值
-        reserve      改变当前vecotr所分配空间的大小
-        erase         删除指针指向的数据项
-        clear          清空当前的vector
-        rbegin        将vector反转后的开始指针返回(其实就是原来的end-1)
-        rend          将vector反转构的结束指针返回(其实就是原来的begin-1)
-        empty        判断vector是否为空
-        swap         与另一个vector交换数据
-
-     3.2  详细的函数实现功能：其中vector&lt;int&gt; c.
-            c.clear()         移除容器中所有数据。
-            c.empty()         判断容器是否为空。
-            c.erase(pos)        删除pos位置的数据
-            c.erase(beg,end) 删除[beg,end)区间的数据
-            c.front()         传回第一个数据。
-            c.insert(pos,elem)  在pos位置插入一个elem拷贝
-            c.pop_back()     删除最后一个数据。
-            c.push_back(elem) 在尾部加入一个数据。
-            c.resize(num)     重新设置该容器的大小
-            c.size()         回容器中实际数据的个数。
-            c.begin()           返回指向容器第一个元素的迭代器
-            c.end()             返回指向容器最后一个元素的迭代器
-</code></pre><h3 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h3><p>C++11中出现了两种新的关联容器:unordered_set和unordered_map，其内部实现与set和map大有不同，set和map内部实现是基于RB-Tree，而unordered_set和unordered_map内部实现是基于哈希表(hashtable)，由于unordered_set和unordered_map内部实现的公共接口大致相同，所以本文以unordered_set为例。<br>unordered_set是基于哈希表，因此要了解unordered_set，就必须了解哈希表的机制。<br>哈希表是根据关键码值而进行直接访问的数据结构，通过相应的哈希函数(也称散列函数)处理关键字得到相应的关键码值，关键码值对应着一个特定位置，用该位置来存取相应的信息，这样就能以较快的速度获取关键字的信息。<br>比如：现有公司员工的个人信息（包括年龄），需要查询某个年龄的员工个数。由于人的年龄范围大约在[0，200]，所以可以开一个200大小的数组，然后通过哈希函数得到key对应的key-value，这样就能完成统计某个年龄的员工个数。<br>而在这个例子中，也存在这样一个问题，两个员工的年龄相同，但其他信息（如：名字、身份证）不同，通过前面说的哈希函数，会发现其都位于数组的相同位置，这里，就涉及到“冲突”。<br>准确来说，冲突是不可避免的，而解决冲突的方法常见的有：开发地址法、再散列法、链地址法(也称拉链法)。而unordered_set内部解决冲突采用的是—-链地址法，当用冲突发生时把具有同一关键码的数据组成一个链表。</p>
-<h3 id="它的count方法"><a href="#它的count方法" class="headerlink" title="它的count方法"></a>它的count方法</h3><p>if an element with a value equivalent to k is found, or zero otherwise.如果一个元素的值和k是相等的，就返回1，否则返回0.</p>
-<h1 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h1><pre><code>class Solution {
-public:
-    vector&lt;string&gt; findWords(vector&lt;string&gt;&amp; words) {
-        unordered_set&lt;char&gt; row1 {&apos;q&apos;, &apos;w&apos;, &apos;e&apos;, &apos;r&apos;, &apos;t&apos;, &apos;y&apos;,&apos;u&apos;, &apos;i&apos;, &apos;o&apos;, &apos;p&apos;};
-        unordered_set&lt;char&gt; row2 {&apos;a&apos;, &apos;s&apos;, &apos;d&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;j&apos;, &apos;k&apos;, &apos;l&apos;}; 
-        unordered_set&lt;char&gt; row3 { &apos;z&apos;, &apos;x&apos;, &apos;c&apos;, &apos;v&apos;, &apos;b&apos; ,&apos;n&apos;, &apos;m&apos;};
-        //使用unordered_set存储每一行的字母
-
-        vector&lt;unordered_set&lt;char&gt;&gt; rows {row1, row2, row3};
-        //再把哈希表放到vector里
-
-        vector&lt;string&gt; validWords;
-        for(int i=0; i&lt;words.size(); ++i){
-            //遍历单词
-            int row=0;
-
-            for(int k=0; k&lt;3; ++k){
-                if(rows[k].count((char)tolower(words[i][0])) &gt; 0) row = k;
-                //tolower函数可以把大写字母转换成小写
-            }
-
-            validWords.push_back(words[i]);
-            //把单词放到validwords里面
-            for(int j=1; j&lt;words[i].size(); ++j){
-
-                if(rows[row].count((char)tolower(words[i][j])) == 0){
-                    validWords.pop_back();//不符合要求的单词弹出
-                    break;
-                }
-            }
-
-        }
-        return validWords;
-    }
-};
-</code></pre><h3 id="AC代码理解"><a href="#AC代码理解" class="headerlink" title="AC代码理解"></a>AC代码理解</h3><p>这段代码主要需要理解的就是三个循环，第一个大循环是遍历单词，第二个循环是遍历rows，找到单词的第一个字母所在行，并且记录下行号，第三个循环是遍历单词的每一个字母，第一个字母所在行已经确定了，后面的也必须在这一行，否则不合格，弹出这个单词</p>
-<h1 id="优化解法"><a href="#优化解法" class="headerlink" title="优化解法"></a>优化解法</h1><pre><code>class Solution {
-public:
-vector&lt;string&gt; findWords(vector&lt;string&gt;&amp; words) 
-{
-    vector&lt;string&gt; res;
-
-    for(auto str : words)
-    {
-        bool r1 = str.find_first_of(&quot;QWERTYUIOPqwertyuiop&quot;) == string::npos ? false : true;
-        bool r2 = str.find_first_of(&quot;ASDFGHJKLasdfghjkl&quot;) == string::npos ? false : true;
-        bool r3 = str.find_first_of(&quot;ZXCVBNMzxcvbnm&quot;) == string::npos ? false : true;
-
-        if(r1 + r2 + r3 == 1)
-            res.push_back(str);
-    }
-
-    return res;
-}
-
-};
-</code></pre><h2 id="关于优化解法"><a href="#关于优化解法" class="headerlink" title="关于优化解法"></a>关于优化解法</h2><p>优化解法看上去都是很简洁啊，膜拜大佬。这个只需要一个循环，遍历单词，str是每一个单词，而对于find_first_of这个方法，我也是不知道。。。查了一波</p>
-<p>其实这个也比较好理解，就是每个单词查找它是否在某一行。。。不是很理解str.find_first_of(“QWERTYUIOPqwertyuiop”)是怎么运行的准备试验一下，emmmm，懂了！<br>bool r1 = str.find_first_of(“QWERTYUIOPqwertyuiop”) == string::npos ? false : true;<br>bool r2 = str.find_first_of(“ASDFGHJKLasdfghjkl”) == string::npos ? false : true;<br>bool r3 = str.find_first_of(“ZXCVBNMzxcvbnm”) == string::npos ? false : true;<br>这三行是核心，用str，也就是每个单词，去寻找它里面的字母是否在这三行里，只有全在一行里，才能使r1 + r2 + r3 == 1<br>所以判断成功</p>
-<p>以下是查找的资料：<br>string 类提供字符串处理函数，利用这些函数，程序员可以在字符串内查找字符，<br>提取连续字符序列(称为子串)，以及在字符串中删除和添加。我们将介绍一些主要函数。</p>
-<p>1.函数find_first_of()和 find_last_of() 执行简单的模式匹配<br>例如：在字符串中查找单个字符c。<br>函数find_first_of() 查找在字符串中第1个出现的字符c，而函数find_last_of()查找最后<br>一个出现的c。匹配的位置是返回值。如果没有匹配发生，则函数返回-1.</p>
-<pre><code>int find_first_of(char c, int start = 0):
-    查找字符串中第1个出现的c,由位置start开始。
-    如果有匹配，则返回匹配位置；否则，返回-1.默认情况下，start为0，函数搜索
-    整个字符串。
-
-int find_last_of(char c):
-    查找字符串中最后一个出现的c。有匹配，则返回匹配位置；否则返回-1.
-    该搜索在字符末尾查找匹配，所以没有提供起始位置。
-</code></pre><p>string::npos好像就是-1？static const size_t npos = -1;  </p>
-
-          
+<h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>vector(向量): C++中的一种数据结构,确切的说是一个类.它相当于一个动态的数组,当程序员无法知道自己需要的数组的规模多大时,用其来解决问题可以达到最大节约空间的目的.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018-01-24-2017-10-05-(Leetcode)KeyboardRow.md#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1212,119 +1111,15 @@ int find_last_of(char c):
 
       
         
-          
-            <h1 id="学习java之iterable"><a href="#学习java之iterable" class="headerlink" title="学习java之iterable"></a>学习java之iterable</h1><p>##一些废话<br>十一废了几天以后有点良心不安，打开spark组的任务，看到里面有iterable的学习计划。emm，我的java学的很不扎实，只会一些基础语法，乘此机会，学习一下吧</p>
+          <h1 id="学习java之iterable"><a href="#学习java之iterable" class="headerlink" title="学习java之iterable"></a>学习java之iterable</h1><h2 id="一些废话"><a href="#一些废话" class="headerlink" title="一些废话"></a>一些废话</h2><p>十一废了几天以后有点良心不安，打开spark组的任务，看到里面有iterable的学习计划。emm，我的java学的很不扎实，只会一些基础语法，乘此机会，学习一下吧</p>
 <h2 id="学习iterable和iterator"><a href="#学习iterable和iterator" class="headerlink" title="学习iterable和iterator"></a>学习iterable和iterator</h2><p>从语法上来看iterable是可以迭代的意思，而iterator是迭代者，也就是迭代器的意思。</p>
-<h3 id="iterator"><a href="#iterator" class="headerlink" title="iterator"></a>iterator</h3><p>iterator是提供迭代机制的对象，具体如何迭代都是iterator接口规范的<br>它包含三个方法：hasNext,next,remove.remove用到的比较少</p>
-<ul>
-<li>每次迭代前，先调用hasNext()探测是否迭代到终点。</li>
-<li>next方法不仅要返回当前元素，还要后移游标cursor</li>
-<li>remove方法用来删除最近一次迭代出的元素</li>
-<li>迭代出的元素是原集合中元素的拷贝（重要）</li>
-<li>需要配合foreach使用<br>迭代的细节，需要理解的：</li>
-<li>hasNext,next,remove的调用顺序</li>
-<li><p>迭代出的元素是原集合中元素的拷贝（重要）</p>
-<h3 id="手动迭代的例子，与foreach的原理一样"><a href="#手动迭代的例子，与foreach的原理一样" class="headerlink" title="手动迭代的例子，与foreach的原理一样"></a>手动迭代的例子，与foreach的原理一样</h3><p>  public static void main(String[] args)<br>  {</p>
-<pre><code>List&lt;Integer&gt; li = new ArrayList&lt;&gt;();
-
-li.add(1);
-li.add(2);
-li.add(3);
-
-//不使用foreach 而手动迭代
-Iterator&lt;Integer&gt; iter = li.iterator();    //获取ArrayList 的迭代器
-
-while(iter.hasNext())                      //①先探测能否继续迭代
-{
-    System.out.println(iter.next());       //②后取出本次迭代出的元素
-
-    //invoke  remove()                     //③最后如果需要，调用remove
-
-}
-</code></pre><p>  }</p>
-<h3 id="iterable"><a href="#iterable" class="headerlink" title="iterable"></a>iterable</h3><p>一个集合如果要表明自己可以迭代，可以使用foreach语句，就必须实现iterable接口，表示自己是可以迭代的，要实现iterable接口，需要为foreach语句提供一个迭代器。这个迭代器是用接口定义的iterator方法提供的。iterator方法需要返回一个iterator对象</p>
-</li>
-</ul>
-<h3 id="迭代出来的元素都是原来集合元素的拷贝"><a href="#迭代出来的元素都是原来集合元素的拷贝" class="headerlink" title="迭代出来的元素都是原来集合元素的拷贝"></a>迭代出来的元素都是原来集合元素的拷贝</h3><p>Java集合中保存的元素实质是对象的引用(可以理解为C中的指针)，而非对象本身。</p>
-<p>迭代出的元素也就都是 引用的拷贝，结果还是引用。那么，如果集合中保存的元素是可变类型的，我们就可以通过迭代出的元素修改原集合中的对象。</p>
-<p>而对于不可变类型，如String  基本元素的包装类型Integer 都是则不会反应到原集合中。</p>
-<h2 id="小实验，让自己的类支持迭代"><a href="#小实验，让自己的类支持迭代" class="headerlink" title="小实验，让自己的类支持迭代"></a>小实验，让自己的类支持迭代</h2><pre><code>public class Main
-{
-
-    public static void main(String[] args)
-    {
-
-
-        MyString s = new MyString(&quot;1234567&quot;);
-
-
-        for(char c:s)
-        {
-            System.out.println(c);
-        }
-
-
-
-    }
-
-}
-
-
-
-
-class MyString implements Iterable&lt;Character&gt;
-{
-
-    private int length = 0;
-    private String ineers = null;
-
-    public MyString(String s)
-    {
-        this.ineers = s;
-        this.length = s.length();
-
-    }
-
-
-    @Override
-    public Iterator&lt;Character&gt; iterator()
-    {
-
-
-        class iter  implements Iterator&lt;Character&gt;     //方法内部类
-        {
-            private int cur= 0;
-
-
-            @Override
-            public boolean hasNext()
-            {
-                return cur != length;
-            }
-
-            @Override
-            public Character next()
-            {
-
-                Character c = ineers.charAt(cur);
-                cur++;
-                return c;
-            }
-
-            public void remove()
-            {
-                 // do nothing 
-
-            }
-
-        }
-        return new iter();     //安装Iterable接口的约定，返回迭代器
-
-    }
-
-}
-</code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018-01-24-2017-10-04-学习java之iterable.md#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1441,24 +1236,15 @@ class MyString implements Iterable&lt;Character&gt;
 
       
         
-          
-            <h1 id="学习spark大数据之环境安装"><a href="#学习spark大数据之环境安装" class="headerlink" title="学习spark大数据之环境安装"></a>学习spark大数据之环境安装</h1><p>##一些废话<br>十一来了，本来是想去看升旗的，在室友的一致劝导下，我放弃了~~十一的北京各大景点都是很多人，还是选择在寝室打打农药，写写代码比较安逸。emm，最近我们寝室晚上还流行集体看恐怖片了2333，生活过的很是安逸哈。话说现在北邮各个实验室好像都在做大数据，数据挖掘，数据分析这些，我们实验室也有大数据，大家对大数据的学习热情都很高（有点跟风哈哈），反正有时间多学点知识总没有坏处吧，在加入安卓小组后，我也同时开始学习spark了，目前状态是还在安装环境，完全的小白。</p>
-<h2 id="学习步骤"><a href="#学习步骤" class="headerlink" title="学习步骤"></a>学习步骤</h2><p>那肯定是先要配置环境了。。在网上找到一篇环境配置的文章，写的还比较详细<a href="http://www.cnblogs.com/shishanyuan/p/4701510.html。我就是跟着这个教程在做。" target="_blank" rel="noopener">http://www.cnblogs.com/shishanyuan/p/4701510.html。我就是跟着这个教程在做。</a> </p>
-<h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><p>过程比较慢。。。感觉绕了很多弯路，比如装好了centos，要把数据传输到虚拟机，折腾vsftpd就弄了很久，但是最后还没有成功！主机可以ping通，但是ftp不通，最后我放弃了ftp，使用vbox自带的增强工具，就可以共享文件夹了，还是很方便的<br>安装vbox自带的增强工具，可能会出现一些错误，根据提示update一些东西吧，比如kernel。。<br>一下是摘自csdn的一片博客<a href="http://blog.csdn.net/buyueliuying/article/details/51645649，图片我这里放上去太麻烦就放弃了。" target="_blank" rel="noopener">http://blog.csdn.net/buyueliuying/article/details/51645649，图片我这里放上去太麻烦就放弃了。</a></p>
-<p>1.安装需要的环境<br>方法一：<br>yum update<br>yum install gcc<br>yum install gcc-c++<br>yum install make<br>yum install kernel-headers<br>yum install kernel-devel</p>
-<p>(一定要先安装gcc和gcc-c++，再安装下面两个kernel，否则kernel无法完全编译)<br>方法二：<br>官方建议使用如下两个命令替换上面多个命令来安装，以确保所需的环境都安装上<br>yum update  #可执行也可不执行<br>yum groupinstall “Development Tools”</p>
-<p>2.重启系统<br>reboot</p>
-<p>3.挂载并安装 VBoxGuestAdditions.iso<br>需要加载VBoxGuestAdditions，virtualbox安装目录里面会有VBoxGuestAdditions.iso，或者到<a href="http://download.virtualbox.org/virtualbox下载对应版本的增强包" target="_blank" rel="noopener">http://download.virtualbox.org/virtualbox下载对应版本的增强包</a></p>
-<p>新增目录<br>mkdir /home/website<br>挂载到CD/DVD虚拟光驱<br>mount -t auto /dev/cdrom /home/website<br>(这里的cdrom是cd的，有时是dvd1，具体有什么光驱到 /dev目录下查看)</p>
-<p>转到目录<br>cd /home/website</p>
-<p>执行ls目录，此时看到列表中有VBoxLinuxAdditions.run证明挂载成功</p>
-<p>sh ./VBoxLinuxAdditions.run<br>等待安装完成</p>
-<p>(如果安装结果提示内核错误，尝试 使用 yum update kernel 更新内核,需要reboot后安装VBoxLinuxAdditions)</p>
-<p>最后 重启以使 GuestAddition 生效<br>reboot</p>
-<p>4.共享文件夹<br>这里共享本机win7的D盘的website文件夹为例，让centos可以访问该目录</p>
-<p>挂载<br>mount -t vboxsf wb /home/website<br>切换目录并查看<br>cd /home/website<br>ls<br>如果成功则可以看到本机的文件<br>实现 开机自动挂载<br>vi ~/.bashrc<br>添加一行mount -t vboxsf wb /home/website，保存退出</p>
-<h2 id="好像需要3个centos系统建立集群，我感觉我的磁盘空间都不够了，，，先弄一个吧"><a href="#好像需要3个centos系统建立集群，我感觉我的磁盘空间都不够了，，，先弄一个吧" class="headerlink" title="好像需要3个centos系统建立集群，我感觉我的磁盘空间都不够了，，，先弄一个吧"></a>好像需要3个centos系统建立集群，我感觉我的磁盘空间都不够了，，，先弄一个吧</h2>
-          
+          <h1 id="学习spark大数据之环境安装"><a href="#学习spark大数据之环境安装" class="headerlink" title="学习spark大数据之环境安装"></a>学习spark大数据之环境安装</h1><h2 id="一些废话"><a href="#一些废话" class="headerlink" title="一些废话"></a>一些废话</h2><p>十一来了，本来是想去看升旗的，在室友的一致劝导下，我放弃了~~十一的北京各大景点都是很多人，还是选择在寝室打打农药，写写代码比较安逸。emm，最近我们寝室晚上还流行集体看恐怖片了2333，生活过的很是安逸哈。话说现在北邮各个实验室好像都在做大数据，数据挖掘，数据分析这些，我们实验室也有大数据，大家对大数据的学习热情都很高（有点跟风哈哈），反正有时间多学点知识总没有坏处吧，在加入安卓小组后，我也同时开始学习spark了，目前状态是还在安装环境，完全的小白。</p>
+<h2 id="学习步骤"><a href="#学习步骤" class="headerlink" title="学习步骤"></a>学习步骤</h2><p>那肯定是先要配置环境了。。在网上找到一篇环境配置的文章，写的还比较详细<a href="http://www.cnblogs.com/shishanyuan/p/4701510.html" target="_blank" rel="noopener">http://www.cnblogs.com/shishanyuan/p/4701510.html</a><br>我就是跟着这个教程在做。 </p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018-01-24-2017-10-02-学习spark大数据之环境安装.md#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1575,30 +1361,16 @@ class MyString implements Iterable&lt;Character&gt;
 
       
         
-          
-            <h1 id="学习java-web之spring"><a href="#学习java-web之spring" class="headerlink" title="学习java-web之spring"></a>学习java-web之spring</h1><p>按照我们组的学习计划，emmmm，明明是安卓开发小组，怎么变成学习java web了？？我也不是很懂，可能是实验室用到的java web会比较多吧。<br>那学就学吧，多学点总是没坏处的，其实是今天不太想做Leetcode了（手动滑稽）。<br>看了一下学习计划，最后任务是使用任一个框架做一个Login的demo，考虑到spring框架那么有名气，那就学习一下吧~</p>
+          <h1 id="学习java-web之spring"><a href="#学习java-web之spring" class="headerlink" title="学习java-web之spring"></a>学习java-web之spring</h1><p>按照我们组的学习计划，emmmm，明明是安卓开发小组，怎么变成学习java web了？？我也不是很懂，可能是实验室用到的java web会比较多吧。<br>那学就学吧，多学点总是没坏处的，其实是今天不太想做Leetcode了（手动滑稽）。<br>看了一下学习计划，最后任务是使用任一个框架做一个Login的demo，考虑到spring框架那么有名气，那就学习一下吧~</p>
 <h2 id="学习步骤"><a href="#学习步骤" class="headerlink" title="学习步骤"></a>学习步骤</h2><p>考虑到我也是有一定java开发基础了，就直接去github下一个demo回来看看吧，感觉那样会学的比较快，嗯。<br>在github很容易就可以搜索到相关的项目，关键词‘java spring Login demo’。down下来后用idea打开，会自动下载需要的框架等等，待他下好就可以工作了。<br>第一个下载的demo有问题，又找了一个成功跑了起来,这里放图片太麻烦了，自行脑补吧。接下来就看看代码是如何实现的。</p>
 <h2 id="学习代码"><a href="#学习代码" class="headerlink" title="学习代码"></a>学习代码</h2><p>emmmm，这个代码有点复杂哈，不仅实现了简单的登录和退出，还有注册等内容，所以。。我还是准备找个教程来学习吧~</p>
-<h2 id="29号继续学习spring"><a href="#29号继续学习spring" class="headerlink" title="29号继续学习spring"></a>29号继续学习spring</h2><p>昨天开始，就疯狂报错！很气，主要是java.lang.ClassNotFoundException: org.apache.commons.dbcp.BasicDataSource这个错，嗯，应该是少了一个jar包，在网上找了一下，据说除了common这个包还有一个commons-pool.jar这个包！<br>哇，心态蹦了！！！找了这些个文件添加到library里，还是报错。<br>还是没弄好，感觉是和版本有一定关系，mmp终于好了，但是又有另外一个问题了。。错误原因是版本不对，必须是1.2.2版本commons-pool必须是1.3<br>哇！终于搞定了！这个简单的demo，我还是费了不少时间哈哈</p>
-<h2 id="总结一下有哪些坑吧"><a href="#总结一下有哪些坑吧" class="headerlink" title="总结一下有哪些坑吧"></a>总结一下有哪些坑吧</h2><ul>
-<li>首先是上午那个缺少类的问题，注意版本，还有就是用idea的话，添加新的包，可以选择maven添加，这样可以在线搜索添加，很方便</li>
-<li>还有就是注解，在controller类上要加上@Controller注解，在service impl上加上@service 还有别的，就看代码吧</li>
-<li>编码也有一个坑。。。默认情况下，post过来的中文会乱码，在网上找到解决办法，挺有效的，在web.xml中加上<br>  <filter><pre><code>    &lt;filter-name&gt;CharacterEncodingFilter&lt;/filter-name&gt;
-    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
-    &lt;init-param&gt;
-        &lt;param-name&gt;encoding&lt;/param-name&gt;
-        &lt;param-value&gt;utf-8&lt;/param-value&gt;
-    &lt;/init-param&gt;
-&lt;/filter&gt;
-&lt;filter-mapping&gt;
-    &lt;filter-name&gt;CharacterEncodingFilter&lt;/filter-name&gt;
-    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-&lt;/filter-mapping&gt;
-</code></pre></filter></li>
-<li>还有一些小坑，根据错误提示就能改好</li>
-</ul>
-<h3 id="下一篇文章再来分析一下项目代码吧"><a href="#下一篇文章再来分析一下项目代码吧" class="headerlink" title="下一篇文章再来分析一下项目代码吧"></a>下一篇文章再来分析一下项目代码吧</h3>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018-01-24-2017-09-28-学习javaweb之spring.md#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1715,48 +1487,26 @@ class MyString implements Iterable&lt;Character&gt;
 
       
         
-          
-            <h2 id="Leetcode-Number-Complement解题记录"><a href="#Leetcode-Number-Complement解题记录" class="headerlink" title="(Leetcode)Number Complement解题记录"></a>(Leetcode)Number Complement解题记录</h2><p>又是一题位操作的题目，摩拳擦掌表示应该能做出来。。。不过最后确实是写出来了，不过不是最优解</p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.</p>
-<p>Note:<br>The given integer is guaranteed to fit within the range of a 32-bit signed integer.<br>You could assume no leading zero bit in the integer’s binary representation.</p>
-<p>Example：<br>    Input: 5<br>    Output: 2<br>    Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.</p>
-<p>题意是输入一个整数，输出一个十进制数，他们的二进制互补</p>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>有了昨天位运算的基础，感觉自己应该能做。首先想到的是先&amp;1，然后再进行移位操作，通过&amp;1是否为0，判断二进制尾位是否为0，然后分情况对输出数字进行移位操作。试了一下发现不可行，比如输入2，二进制是10，互补的应该是01，但是移位出的结果还是10，，，放弃这个想法。<br>后面的思路就比较暴力了，，直接把二进制数转换为十进制的。。比较蠢的方法，不过ac了<br>后来在网上看到比较好的解法，是使用mask掩码，使mask^num就可以得到补码！真是很方便，但是我却想不到，完全没想到这种操作，还是太年轻。。</p>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>比较蠢的方法。。。</p>
-<pre><code>class Solution {
-public:
-    int findComplement(int num) {
-        int res=0,i=0;
-        int ans[32]={0};
-        while(num&gt;0){
-            if((num&amp;1)==0){
-                ans[i++]=1;
-            }else
-                ans[i++]=0;
-            num&gt;&gt;=1;
-        }
+          <h2 id="Leetcode-Number-Complement解题记录"><a href="#Leetcode-Number-Complement解题记录" class="headerlink" title="(Leetcode)Number Complement解题记录"></a>(Leetcode)Number Complement解题记录</h2><p>又是一题位操作的题目，摩拳擦掌表示应该能做出来。。。不过最后确实是写出来了，不过不是最优解</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><pre><code>Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
 
-        int len=i;
-        for(int x=0;x&lt;len;x++){
-            res+=ans[x]*pow(2,x);
-        }
-        return res;
-    }
-};
-</code></pre><h1 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h1><p>使用mask和num异或操作，这样就能得到补码，mask的获取是使用移位操作。<br>mask–1为和num二进制位等长的所有位数为1的数（这是一个规律），与num取^可以得到和num相反的数字</p>
-<pre><code>class Solution {
-public:
-    int findComplement(int num) {
-        int temp = num, mask = 1;
-        while(temp){
-            temp &gt;&gt;= 1;
-            mask &lt;&lt;= 1;
-        }
-        return ((mask - 1) ^ num);
-    }
-};
-</code></pre>
-          
+Note:
+The given integer is guaranteed to fit within the range of a 32-bit signed integer.
+You could assume no leading zero bit in the integer’s binary representation.
+
+Example：
+    Input: 5
+    Output: 2
+    Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.
+</code></pre><p>题意是输入一个整数，输出一个十进制数，他们的二进制互补</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>有了昨天位运算的基础，感觉自己应该能做。首先想到的是先&amp;1，然后再进行移位操作，通过&amp;1是否为0，判断二进制尾位是否为0，然后分情况对输出数字进行移位操作。试了一下发现不可行，比如输入2，二进制是10，互补的应该是01，但是移位出的结果还是10，，，放弃这个想法。<br>后面的思路就比较暴力了，，直接把二进制数转换为十进制的。。比较蠢的方法，不过ac了<br>后来在网上看到比较好的解法，是使用mask掩码，使mask^num就可以得到补码！真是很方便，但是我却想不到，完全没想到这种操作，还是太年轻。。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018-01-24-2017-09-27-(Leetcode)NumberComplement.md#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

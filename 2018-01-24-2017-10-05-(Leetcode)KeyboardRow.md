@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="(Leetcode)Keyboard Row解题记录这是一题字符串有关的题目，我只想到了笨方法，而且实现起来比较复杂，感觉写出来需要很久 题目Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like t">
+<meta name="description" content="(Leetcode)Keyboard Row解题记录这是一题字符串有关的题目，我只想到了笨方法，而且实现起来比较复杂，感觉写出来需要很久 题目Given a List of words, return the words that can be typed using letters of alphabet on only one row&amp;apos;s of American keyboard l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(Leetcode)Keyboard Row解题记录">
 <meta property="og:url" content="http://chapter007.github.io/blog/2018-01-24-2017-10-05-(Leetcode)KeyboardRow.md">
 <meta property="og:site_name" content="张杰的日志">
-<meta property="og:description" content="(Leetcode)Keyboard Row解题记录这是一题字符串有关的题目，我只想到了笨方法，而且实现起来比较复杂，感觉写出来需要很久 题目Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like t">
+<meta property="og:description" content="(Leetcode)Keyboard Row解题记录这是一题字符串有关的题目，我只想到了笨方法，而且实现起来比较复杂，感觉写出来需要很久 题目Given a List of words, return the words that can be typed using letters of alphabet on only one row&amp;apos;s of American keyboard l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-06T02:47:32.078Z">
+<meta property="og:updated_time" content="2018-01-25T01:00:22.572Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(Leetcode)Keyboard Row解题记录">
-<meta name="twitter:description" content="(Leetcode)Keyboard Row解题记录这是一题字符串有关的题目，我只想到了笨方法，而且实现起来比较复杂，感觉写出来需要很久 题目Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like t">
+<meta name="twitter:description" content="(Leetcode)Keyboard Row解题记录这是一题字符串有关的题目，我只想到了笨方法，而且实现起来比较复杂，感觉写出来需要很久 题目Given a List of words, return the words that can be typed using letters of alphabet on only one row&amp;apos;s of American keyboard l">
 
 
 
@@ -300,14 +300,23 @@
 
       
         <h2 id="Leetcode-Keyboard-Row解题记录"><a href="#Leetcode-Keyboard-Row解题记录" class="headerlink" title="(Leetcode)Keyboard Row解题记录"></a>(Leetcode)Keyboard Row解题记录</h2><p>这是一题字符串有关的题目，我只想到了笨方法，而且实现起来比较复杂，感觉写出来需要很久</p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like the image below.</p>
-<p>Example 1:</p>
-<p>Input: [“Hello”, “Alaska”, “Dad”, “Peace”]<br>Output: [“Alaska”, “Dad”]</p>
-<p>Note:</p>
-<p>You may use one character in the keyboard more than once.<br>You may assume the input string will only contain letters of alphabet.</p>
-<p>题意是输入一些单词，返回那些字母全在键盘上同一行的单词，比较好懂</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><pre><code>Given a List of words, return the words that can be typed using letters of alphabet on only one row&apos;s of American keyboard like the image below.
+
+Example 1:
+
+Input: [&quot;Hello&quot;, &quot;Alaska&quot;, &quot;Dad&quot;, &quot;Peace&quot;]
+Output: [&quot;Alaska&quot;, &quot;Dad&quot;]
+
+
+Note:
+
+You may use one character in the keyboard more than once.
+You may assume the input string will only contain letters of alphabet.
+</code></pre><p>题意是输入一些单词，返回那些字母全在键盘上同一行的单词，比较好懂</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>思路很清晰，键盘上每一行的字母都是确定的，把每一行都存储到数组里面，然后遍历单词，就可以知道单词的字母在哪一行了，如果所有字母不在同一行则不符合规则。<br>事实上这样的效率会比较低，需要遍历单词，还需要遍历每一行的字母，嵌套遍历了。后来在网上看到别的解法，思路相似，但是使用unordered_set count可以快速得知单词里的字母是否在某一行中。需要补充一些c++的语法知识了。</p>
-<h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>vector(向量): C++中的一种数据结构,确切的说是一个类.它相当于一个动态的数组,当程序员无法知道自己需要的数组的规模多大时,用其来解决问题可以达到最大节约空间的目的.<br>用法:</p>
+<h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>vector(向量): C++中的一种数据结构,确切的说是一个类.它相当于一个动态的数组,当程序员无法知道自己需要的数组的规模多大时,用其来解决问题可以达到最大节约空间的目的.</p>
+<a id="more"></a>
+<p>用法:</p>
 <p>1.文件包含:<br>    首先在程序开头处加上#include<vector>以包含所需要的类文件vector还有一定要加上using namespace std;<br>2.变量声明:<br>    2.1 例:声明一个int向量以替代一维的数组:vector <int> a;(等于声明了一个int数组a[],大小没有指定,可以动态的向里面添加删除)。<br>    2.2 例:用vector代替二维数组.其实只要声明一个一维数组向量即可,而一个数组的名字其实代表的是它的首地址,所以只要声明一个地址的向量即可,即:vector <int *=""> a.同理想用向量代替三维数组也是一样,vector <int**>a;再往上面依此类推.</int**></int></int></vector></p>
 <p>3.具体的用法以及函数调用:</p>
 <pre><code>3.1 如何得到向量中的元素?其用法和数组一样:
