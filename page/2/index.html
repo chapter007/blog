@@ -229,6 +229,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chapter007.github.io/blog/blog/2017-09-27-(Leetcode)NumberComplement.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张杰的日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2017-09-27-(Leetcode)NumberComplement.html" itemprop="url">(Leetcode)Number Complement解题记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T00:00:00+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Leetcode-Number-Complement解题记录"><a href="#Leetcode-Number-Complement解题记录" class="headerlink" title="(Leetcode)Number Complement解题记录"></a>(Leetcode)Number Complement解题记录</h2><p>又是一题位操作的题目，摩拳擦掌表示应该能做出来。。。不过最后确实是写出来了，不过不是最优解</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><pre><code>Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
+
+Note:
+The given integer is guaranteed to fit within the range of a 32-bit signed integer.
+You could assume no leading zero bit in the integer’s binary representation.
+
+Example：
+    Input: 5
+    Output: 2
+    Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.
+</code></pre><p>题意是输入一个整数，输出一个十进制数，他们的二进制互补</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>有了昨天位运算的基础，感觉自己应该能做。首先想到的是先&amp;1，然后再进行移位操作，通过&amp;1是否为0，判断二进制尾位是否为0，然后分情况对输出数字进行移位操作。试了一下发现不可行，比如输入2，二进制是10，互补的应该是01，但是移位出的结果还是10，，，放弃这个想法。<br>后面的思路就比较暴力了，，直接把二进制数转换为十进制的。。比较蠢的方法，不过ac了<br>后来在网上看到比较好的解法，是使用mask掩码，使mask^num就可以得到补码！真是很方便，但是我却想不到，完全没想到这种操作，还是太年轻。。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2017-09-27-(Leetcode)NumberComplement.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://chapter007.github.io/blog/blog/2017-09-26-(Leetcode)ReverseBits.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1162,7 +1298,7 @@ Related problem: Reverse Integer
               
                 <a href="/blog/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1170,6 +1306,15 @@ Related problem: Reverse Integer
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
